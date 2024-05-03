@@ -1,4 +1,6 @@
 # OOP Mid-2 Unit 5
+`Created by Vatsal Shah`
+`Disclaimer - AI is Used While Making This and Add Figure in Answer Accordingly if Required`
 ## Q-1) Explain inheritance with its types and give suitable example.
 
 **Answer:**
@@ -1154,4 +1156,67 @@ public class InfixToPrefixConverter {
 This program takes an infix expression as input, converts it to a postfix expression using the Shunting Yard algorithm, and then reverses the postfix expression to obtain the prefix expression.
 
 
+## Q-18) Write a Java program that evaluates a math expression given in string form from command line arguments.
+
+Here's a beginner-friendly Java program to evaluate a mathematical expression provided as a command line argument:
+
+```java
+public class MathExpressionEvaluator {
+
+    // Function to evaluate a mathematical expression
+    static double evaluateExpression(String expression) {
+        try {
+            // Create a ScriptEngineManager
+            javax.script.ScriptEngineManager manager = new javax.script.ScriptEngineManager();
+            // Create a JavaScript engine
+            javax.script.ScriptEngine engine = manager.getEngineByName("js");
+            // Evaluate the expression using the JavaScript engine
+            Object result = engine.eval(expression);
+            // Convert the result to double
+            return Double.parseDouble(result.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return Double.NaN; // Return NaN (Not a Number) if evaluation fails
+        }
+    }
+
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Usage: java MathExpressionEvaluator <math_expression>");
+            return;
+        }
+
+        String mathExpression = args[0];
+        double result = evaluateExpression(mathExpression);
+        if (!Double.isNaN(result)) {
+            System.out.println("Result of expression " + mathExpression + " = " + result);
+        }
+    }
+}
+```
+
+This program takes a mathematical expression as a command line argument and evaluates it using a JavaScript engine. If the evaluation is successful, it prints the result; otherwise, it prints an error message. 
+
+To run the program, execute the following command in the terminal:
+
+```
+java MathExpressionEvaluator "<math_expression>"
+```
+
+Replace `<math_expression>` with the expression you want to evaluate. For example:
+
+```
+java MathExpressionEvaluator "2 * (3 + 4)"
+```
+
+This will print the result of the expression `2 * (3 + 4)`.
+
+## End of Unit-5 QB
+*You Can Check Out Other Files For More QB Solution*
+
+
 ![alt text](https://i.imgur.com/8Qw2VtL.png)
+    
+**Created By Vatsal Shah**
+    
+`csevatsalshah@gmail.com`
