@@ -221,3 +221,100 @@ The output demonstrates the use of the `super` keyword to access both the child 
 
 This detailed explanation provides insight into the usage of the `super` keyword in Java, along with a clear example showcasing its functionality.
 
+
+## Q-5) Describe abstract class called Shape, which has three subclasses say Triangle, Rectangle, and Circle. Define one method area() in the abstract class and override this area() in these three subclasses to calculate for specific object i.e. area() of Triangle subclass should calculate area of triangle likewise for Rectangle and Circle.
+
+**Answer:**
+
+```java
+// Abstract class Shape
+abstract class Shape {
+    // Abstract method to calculate area
+    abstract double area();
+}
+
+// Subclass Triangle
+class Triangle extends Shape {
+    double base;
+    double height;
+
+    // Constructor
+    Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    // Override area method to calculate area of triangle
+    @Override
+    double area() {
+        return 0.5 * base * height;
+    }
+}
+
+// Subclass Rectangle
+class Rectangle extends Shape {
+    double length;
+    double width;
+
+    // Constructor
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Override area method to calculate area of rectangle
+    @Override
+    double area() {
+        return length * width;
+    }
+}
+
+// Subclass Circle
+class Circle extends Shape {
+    double radius;
+
+    // Constructor
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Override area method to calculate area of circle
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class ShapeDemo {
+    public static void main(String[] args) {
+        // Creating objects of different shapes
+        Triangle triangle = new Triangle(5, 3);
+        Rectangle rectangle = new Rectangle(4, 6);
+        Circle circle = new Circle(3);
+
+        // Calculating and displaying area of each shape
+        System.out.println("Area of Triangle: " + triangle.area());
+        System.out.println("Area of Rectangle: " + rectangle.area());
+        System.out.println("Area of Circle: " + circle.area());
+    }
+}
+```
+
+**Explanation:**
+
+- We define an abstract class `Shape` with an abstract method `area()` to calculate the area of any shape.
+- Three subclasses `Triangle`, `Rectangle`, and `Circle` inherit from the `Shape` class and provide their own implementations of the `area()` method.
+- In the `Triangle` class, we calculate the area of a triangle using the formula: 0.5 * base * height.
+- In the `Rectangle` class, we calculate the area of a rectangle using the formula: length * width.
+- In the `Circle` class, we calculate the area of a circle using the formula: π * radius * radius.
+- We create objects of each subclass and call the `area()` method to calculate and display the area of each shape.
+
+**Output:**
+
+```
+Area of Triangle: 7.5
+Area of Rectangle: 24.0
+Area of Circle: 28.274333882308138
+```
+
+This program demonstrates the concept of abstract classes and method overriding in Java, where the `area()` method is implemented differently in each subclass to calculate the area of specific shapes.
