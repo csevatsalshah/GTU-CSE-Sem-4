@@ -793,3 +793,365 @@ java PackageV1.Main
 In this example, we create a package `PackageV1.util` containing the `MathUtil` class with a method `square()` to calculate the square of a number. 
 
 In the `Main` class, which belongs to the package `PackageV1`, we import the `MathUtil` class using the `import` statement and use it to calculate the square of 5. Finally, we print the result, which is 25.
+
+
+
+## Q-14.1) Explain Method Overloading and Overriding.
+
+**Method Overloading:**
+
+Method overloading is a feature in Java that allows a class to have multiple methods with the same name but different parameters. These methods can have different numbers or types of parameters. Method overloading enables the same method name to be used for different behaviors based on the type or number of arguments passed to it.
+
+**Key Points:**
+
+1. **Same Method Name:** Method overloading involves defining multiple methods within the same class with the same name.
+
+2. **Different Parameters:** The overloaded methods must have different parameter lists. This can include a different number of parameters, different types of parameters, or both.
+
+3. **Compile-Time Polymorphism:** Method overloading is an example of compile-time polymorphism or static polymorphism. The appropriate method to be called is determined at compile time based on the number and types of arguments passed to it.
+
+**Example of Method Overloading:**
+
+```java
+public class MathOperations {
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method to add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method to add two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+```
+
+**Method Overriding:**
+
+Method overriding is a feature in Java that allows a subclass to provide a specific implementation of a method that is already defined in its superclass. When a method in a subclass has the same signature (name, number, and type of parameters) as a method in its superclass, it is said to override the superclass method.
+
+**Key Points:**
+
+1. **Inheritance Relationship:** Method overriding occurs in a subclass that inherits from a superclass. It allows the subclass to provide its own implementation of a method defined in the superclass.
+
+2. **Same Signature:** The overriding method in the subclass must have the same name, return type, and parameter list as the overridden method in the superclass.
+
+3. **Dynamic Polymorphism:** Method overriding is an example of runtime polymorphism or dynamic polymorphism. The method to be executed is determined at runtime based on the actual type of the object.
+
+**Example of Method Overriding:**
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+In this example, the `Dog` class overrides the `makeSound()` method of its superclass `Animal` with its own implementation. When a `Dog` object calls the `makeSound()` method, the overridden method in the `Dog` class is invoked, demonstrating method overriding.
+
+## Q-14.2) Explain types of polymorphism?
+
+**Polymorphism** refers to the ability of an object to take on multiple forms. In Java, there are two main types of polymorphism: compile-time polymorphism and runtime polymorphism.
+
+**1. Compile-time Polymorphism:**
+   - Also known as **static polymorphism** or **early binding**.
+   - Occurs when the method to be executed is determined at compile time.
+   - Achieved through method overloading and operator overloading.
+   - Example: Method overloading, where multiple methods with the same name but different parameters are defined in the same class.
+
+**2. Runtime Polymorphism:**
+   - Also known as **dynamic polymorphism** or **late binding**.
+   - Occurs when the method to be executed is determined at runtime.
+   - Achieved through method overriding and interface implementation.
+   - Example: Method overriding, where a subclass provides a specific implementation of a method that is already defined in its superclass.
+
+**Example:**
+
+```java
+// Compile-time Polymorphism (Method Overloading)
+public class MathOperations {
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method to add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+// Runtime Polymorphism (Method Overriding)
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+In the above example:
+- Method overloading in `MathOperations` demonstrates compile-time polymorphism.
+- Method overriding in `Dog` demonstrates runtime polymorphism.
+
+
+## Q-15.1) Explain following keywords:
+a) `super` b) `this`
+
+**a) super:**
+
+In Java, `super` is a keyword that refers to the superclass of the current object instance. It is used to access members (fields and methods) of the superclass, invoke superclass constructors, and prevent method hiding.
+
+**Key Points:**
+
+1. **Accessing Superclass Members:** You can use `super` keyword to access superclass fields and methods within a subclass.
+
+2. **Invoking Superclass Constructor:** You can use `super()` as a constructor call to explicitly invoke a superclass constructor from a subclass constructor. It must be the first statement in the subclass constructor.
+
+3. **Preventing Method Hiding:** If a subclass has a method with the same name as a method in its superclass, using `super` keyword allows you to invoke the superclass method, preventing method hiding.
+
+**Example:**
+```java
+class Animal {
+    String color = "white";
+
+    void display() {
+        System.out.println("Color: " + color);
+    }
+}
+
+class Dog extends Animal {
+    String color = "black";
+
+    void display() {
+        super.display(); // Invoke superclass method
+        System.out.println("Dog Color: " + color);
+    }
+}
+```
+
+**b) this:**
+
+In Java, `this` is a keyword that refers to the current object instance. It is used to access instance variables, invoke constructors, and pass the current object as a parameter.
+
+**Key Points:**
+
+1. **Accessing Instance Variables:** You can use `this` keyword to access instance variables within a class. It helps differentiate between instance variables and parameters with the same name.
+
+2. **Invoking Constructors:** You can use `this()` as a constructor call to invoke another constructor within the same class or call a constructor of the superclass. It must be the first statement in the constructor.
+
+3. **Passing Current Object:** You can use `this` keyword to pass the current object as a parameter to other methods or constructors.
+
+**Example:**
+```java
+class Student {
+    String name;
+
+    Student(String name) {
+        this.name = name; // Access instance variable
+    }
+
+    Student() {
+        this("Unknown"); // Invoke another constructor
+    }
+
+    void display() {
+        System.out.println("Student Name: " + this.name); // Pass current object
+    }
+}
+```
+
+## Q-15.2) Explain following Java keywords using appropriate examples:
+a) `static` b) `final` c) `super`
+
+**a) static:**
+
+In Java, `static` is a keyword that can be applied to variables, methods, and nested classes. It indicates that the variable, method, or nested class belongs to the class itself rather than any specific instance of the class.
+
+**Example:**
+
+```java
+class Example {
+    static int count = 0; // Static variable
+
+    static void increment() { // Static method
+        count++;
+    }
+
+    static class NestedClass { // Static nested class
+        void display() {
+            System.out.println("Static nested class");
+        }
+    }
+}
+```
+
+**b) final:**
+
+In Java, `final` is a keyword that can be applied to variables, methods, and classes. It indicates that the variable, method, or class cannot be modified or overridden.
+
+**Example:**
+
+```java
+class Example {
+    final int value = 10; // Final variable
+
+    final void display() { // Final method
+        System.out.println("Final method");
+    }
+}
+
+final class FinalClass { // Final class
+    // Class implementation
+}
+```
+
+**c) super:**
+
+Already explained in the previous answer {Q-15.1 (a)}.
+
+
+
+## Q-16) Consider class A as the parent of class B. Explain among the following which statement will show the compilation error.
+i) A a = new A();
+ii) A a = new B();
+iii) B b = new A(); `Answer`
+iv) B b = new B();
+
+In the scenario where class A is the parent of class B, let's analyze each statement:
+
+i) `A a = new A();`
+This statement is valid because it creates an instance of class A.
+
+ii) `A a = new B();`
+This statement is valid due to polymorphism. Since B is a subclass of A, a reference of type A can point to an object of class B.
+
+iii) `B b = new A();`
+This statement will result in a compilation error because class A is the parent of class B. In Java, a reference of a subclass type cannot point to an object of the superclass type without explicit casting.
+
+iv) `B b = new B();`
+This statement is valid because it creates an instance of class B. Since B is a subclass of A, it can be assigned to a reference variable of type B.
+
+Therefore, the statement that will show the compilation error is iii) `B b = new A();`.
+
+
+## Q-17) Write a Java program to take infix expressions and convert it into prefix expressions.
+
+Here's a Java program to implement the conversion from infix to prefix expressions:
+
+```java
+import java.util.Stack;
+
+public class InfixToPrefixConverter {
+
+    // Function to check if the given character is an operator
+    static boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
+    }
+
+    // Function to determine the precedence of operators
+    static int precedence(char c) {
+        switch (c) {
+            case '^':
+                return 3;
+            case '*':
+            case '/':
+                return 2;
+            case '+':
+            case '-':
+                return 1;
+            default:
+                return -1;
+        }
+    }
+
+    // Function to convert infix expression to postfix expression
+    static String infixToPostfix(String infix) {
+        StringBuilder postfix = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < infix.length(); i++) {
+            char c = infix.charAt(i);
+
+            // If current character is an operand, add it to postfix
+            if (Character.isLetterOrDigit(c)) {
+                postfix.append(c);
+            }
+            // If current character is '(', push it to the stack
+            else if (c == '(') {
+                stack.push(c);
+            }
+            // If current character is ')', pop and output from the stack until '(' is encountered
+            else if (c == ')') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    postfix.append(stack.pop());
+                }
+                stack.pop(); // Pop '('
+            }
+            // If current character is an operator
+            else {
+                while (!stack.isEmpty() && precedence(c) <= precedence(stack.peek())) {
+                    postfix.append(stack.pop());
+                }
+                stack.push(c);
+            }
+        }
+
+        // Pop remaining operators from the stack and append to postfix
+        while (!stack.isEmpty()) {
+            postfix.append(stack.pop());
+        }
+
+        return postfix.toString();
+    }
+
+    // Function to reverse a string
+    static String reverseString(String str) {
+        StringBuilder reversed = new StringBuilder();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed.append(str.charAt(i));
+        }
+        return reversed.toString();
+    }
+
+    // Function to convert infix expression to prefix expression
+    static String infixToPrefix(String infix) {
+        String reversedInfix = reverseString(infix);
+        String postfix = infixToPostfix(reversedInfix);
+        return reverseString(postfix);
+    }
+
+    public static void main(String[] args) {
+        String infixExpression = "A+B*C-D/E";
+        String prefixExpression = infixToPrefix(infixExpression);
+        System.out.println("Infix Expression: " + infixExpression);
+        System.out.println("Prefix Expression: " + prefixExpression);
+    }
+}
+```
+
+**Vatsal** - `Kuch Samajh me nhi aaya but dekh ke acha lga :) `
+
+This program takes an infix expression as input, converts it to a postfix expression using the Shunting Yard algorithm, and then reverses the postfix expression to obtain the prefix expression.
+
+
+![alt text](https://i.imgur.com/8Qw2VtL.png)
