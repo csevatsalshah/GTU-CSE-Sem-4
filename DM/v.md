@@ -1,4 +1,87 @@
-**Q-1: Prove that the set {0,1,2,3,4} is a finite Abelian group under addition modulo 5 as a binary operation.**
+## Q-5: Is the algebraic system (Q, *) a group? Where Q is the set of rational numbers and * is a binary operation defined by a*b = a + b - ab, ∀ a,b ∈ Q.
+
+**Answer:**
+
+To determine if the algebraic system (Q, *) is a group, we need to check if it satisfies the four properties of a group:
+
+1. **Closure**: For all a, b in Q, a*b is also in Q.
+2. **Associativity**: For all a, b, c in Q, (a*b)*c = a*(b*c).
+3. **Identity**: There exists an element e in Q such that for all a in Q, a*e = a.
+4. **Inverse**: For each element a in Q, there exists an element b in Q such that a*b = e.
+
+Let's check each property:
+
+**Closure:**
+
+Let a, b be any two rational numbers in Q. We need to show that a*b = a + b - ab is also a rational number in Q.
+
+Since a and b are rational numbers, we can write them as a = p/q and b = r/s, where p, q, r, and s are integers.
+
+Then, a*b = (p/q) + (r/s) - (p/q)*(r/s) = (ps + qr - pr)/qs.
+
+Since ps + qr - pr and qs are integers, a*b is a rational number in Q. Therefore, the operation * is closed.
+
+**Associativity:**
+
+Let a, b, c be any three rational numbers in Q. We need to show that (a*b)*c = a*(b*c).
+
+Using the definition of *, we have:
+
+(a*b)*c = ((a + b - ab) + c - (a + b - ab)*c)
+= (a + b - ab + c - ac - bc + abc)
+
+a*(b*c) = (a + (b + c - bc) - a*(b + c - bc))
+= (a + b + c - bc - ab - ac + abc)
+
+After simplifying both expressions, we can see that they are equal:
+
+(a*b)*c = a*(b*c)
+
+Therefore, the operation * is associative.
+
+**Identity:**
+
+We need to find an element e in Q such that for all a in Q, a*e = a.
+
+Let e = 1. Then, for any a in Q, we have:
+
+a*e = a*1 = a + 1 - a*1 = a
+
+So, e = 1 is the identity element.
+
+**Inverse:**
+
+For each element a in Q, we need to find an element b in Q such that a*b = e = 1.
+
+Let b = 1/(2 - a). Then, we have:
+
+a*b = a*(1/(2 - a)) = a + (1/(2 - a)) - a/(2 - a) = 1
+
+So, b = 1/(2 - a) is the inverse of a.
+
+**Conclusion:**
+
+We have shown that the algebraic system (Q, *) satisfies all four properties of a group:
+
+* Closure: a*b is a rational number in Q for all a, b in Q.
+* Associativity: (a*b)*c = a*(b*c) for all a, b, c in Q.
+* Identity: e = 1 is the identity element, such that a*e = a for all a in Q.
+* Inverse: for each a in Q, there exists an element b in Q such that a*b = e = 1.
+
+Therefore, the algebraic system (Q, *) is a group.
+
+**Summary:**
+
+* The algebraic system (Q, *) is a group, where Q is the set of rational numbers and * is a binary operation defined by a*b = a + b - ab.
+* The operation * satisfies the four properties of a group: closure, associativity, identity, and inverse.
+
+**Points to Remember:**
+
+* A group must satisfy the four properties: closure, associativity, identity, and inverse.
+* The algebraic system (Q, *) is a group, where Q is the set of rational numbers and * is a binary operation defined by a*b = a + b - ab.
+* The identity element is e = 1, and each element a has an inverse element b = 1/(2 - a).
+  
+**Q-6: Prove that the set {0,1,2,3,4} is a finite Abelian group under addition modulo 5 as a binary operation.**
 
 **Answer:**
 
